@@ -9,7 +9,7 @@ function saveUser(userObj){
 function readUsers(){
     let data=localStorage.getItem(KEY);
     console.log(data);//JSON
-    if(data){//is empty?
+    if(!data){//is empty?
         return[];
     }else{
         //we have data

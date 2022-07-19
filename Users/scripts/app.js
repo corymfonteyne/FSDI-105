@@ -1,6 +1,6 @@
 //create the user constructor
 class User {
-    constructor(fname, lname, email, age, address, password, passwordConfirmation,  paymentMethod) {
+    constructor(fname, lname, email, age, address, password, passwordConfirmation, paymentMethod) {
         this.fname = fname;
         this.lname = lname;
         this.email = email;
@@ -49,6 +49,17 @@ function isValid(user){
     }
     return valid;
 }
+function validatePassword(){
+    console.log("Validating Password"); 
+    let txtPass= $("#txtPassword");// this is the element (input)
+    let password= txtPass.val();// this is the password inside of the element
+    if (password.length<6){
+        txtPass.css("backgroundColor", "red");//this jquery fn change the css
+    }
+    else{
+        txtPass.css("backgroundColor", "green");// thisjquery fn change the css
+    }
+}
 //create the register function
 function register() {
     //get the vaues from the inputs
@@ -69,17 +80,27 @@ function register() {
     clearInputs();
 }
 function clearInputs(){
-    let userFname =$("#txtFirstName").val("");
-    let userLname =$("#txtLastName").val("");
-    let userEmail =$("#txtEmail").val("");
-    let userAge = $("#numAge").val("");
-    let userAddress = $("#txtAddress").val("");
-    let userPassword = $("#txtPassword").val("");
-    let userPasswordConfirmation = $("#txtPasswordConfirmation").val("");
-    let userPaymentMethod = $("#txtPaymentMethod").val("");
+    $("#txtFirstName").val("");
+    $("#txtLastName").val("");
+    $("#txtEmail").val("");
+    $("#numAge").val("");
+    $("#txtAddress").val("");
+    $("#txtPassword").val("");
+    $("#txtPasswordConfirmation").val("");
+    $("#txtPaymentMethod").val("");
 }
 
 function init() {
+    //hide the userForm
+    $("#userForm").hide();
+    //hook events
+    //show the userForm
+    $("#newUser").on("click",function(){
+        $("#userForm").slideDown(3000);
+    }); 
+    //hide the userForm
+    $("#userForm").slideUp(3000);
 
+    $("#txtPassword").keyup(validatePassword);
 }
 window.onload = init;
