@@ -60,6 +60,17 @@ function validatePassword(){
         txtPass.css("backgroundColor", "green");// thisjquery fn change the css
     }
 }
+function passwordConfirmation(){
+    let txtPass= $("#txtPassword").val();
+    let txtPasswordConfirmation= $("#txtPasswordConfirmation").val();
+    if (txtPass=txtPasswordConfirmation){
+        console.log("password is the same");
+    }
+    else{
+        console.log("password is not the same");
+    }
+
+}
 //create the register function
 function register() {
     //get the vaues from the inputs
@@ -76,9 +87,11 @@ function register() {
     let newUser=new User(userFname, userLname, userEmail, userAge, userAddress, userPassword, userPasswordConfirmation, userPaymentMethod);
     //display the user on the console
     console.log(newUser);
-    saveUser(saveUser); 
-    clearInputs();
+    if(isValid(newUser)){
+        saveUser(newUser);//this function is on the storeManager
+    }
 }
+    
 function clearInputs(){
     $("#txtFirstName").val("");
     $("#txtLastName").val("");
@@ -89,6 +102,7 @@ function clearInputs(){
     $("#txtPasswordConfirmation").val("");
     $("#txtPaymentMethod").val("");
 }
+clearInputs();
 
 function init() {
     //hide the userForm
@@ -99,8 +113,12 @@ function init() {
         $("#userForm").slideDown(3000);
     }); 
     //hide the userForm
-    $("#userForm").slideUp(3000);
+    $("#newUser").on("click",function(){
+        $("#userForm").slideUp(3000);
+    });
 
     $("#txtPassword").keyup(validatePassword);
+    $("#txtPassword").keyup(passwordConfirmation);
 }
-window.onload = init;
+
+window.onload = init;    

@@ -13,7 +13,7 @@ function readUsers(){
         return[];
     }else{
         //we have data
-        let list=JSON.parse(data);
+        let list=JSON.parse(!data);
         return list;//return objs
     }
 }
