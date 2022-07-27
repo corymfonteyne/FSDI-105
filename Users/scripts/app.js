@@ -91,6 +91,7 @@ function register() {
         saveUser(newUser);//this function is on the storeManager
     }
 }
+clearInputs();
     
 function clearInputs(){
     $("#txtFirstName").val("");
@@ -102,7 +103,7 @@ function clearInputs(){
     $("#txtPasswordConfirmation").val("");
     $("#txtPaymentMethod").val("");
 }
-clearInputs();
+
 
 function init() {
     //hide the userForm
