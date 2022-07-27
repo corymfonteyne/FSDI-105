@@ -52,7 +52,7 @@ function isValid(user){
 function validatePassword(){
     console.log("Validating Password"); 
     let txtPass= $("#txtPassword");// this is the element (input)
-    let password= txtPass.val();// this is the password inside of the element
+    let password = txtPass.val();// this is the password inside of the element
     if (password.length<6){
         txtPass.css("backgroundColor", "red");//this jquery fn change the css
     }
@@ -63,18 +63,18 @@ function validatePassword(){
 function passwordConfirmation(){
     let txtPass= $("#txtPassword").val();
     let txtPasswordConfirmation= $("#txtPasswordConfirmation").val();
-    if (txtPass=txtPasswordConfirmation){
-        console.log("password is the same");
+    if (txtPass==txtPasswordConfirmation){
+        console.log("password is not the same");
     }
     else{
-        console.log("password is not the same");
+        console.log("password is the same");
     }
 
 }
 //create the register function
 function register() {
     //get the vaues from the inputs
-    let userFname =$("#txtFirstName").val();
+    let userName =$("#txtFirstName").val();
     let userLname =$("#txtLastName").val();
     let userEmail =$("#txtEmail").val();
     let userAge = $("#numAge").val();
@@ -84,14 +84,14 @@ function register() {
     let userPaymentMethod = $("#txtPaymentMethod").val();
     
     //create the object
-    let newUser=new User(userFname, userLname, userEmail, userAge, userAddress, userPassword, userPasswordConfirmation, userPaymentMethod);
+    let newUser=new User(userName, userLname, userEmail, userAge, userAddress, userPassword, userPasswordConfirmation, userPaymentMethod);
     //display the user on the console
     console.log(newUser);
     if(isValid(newUser)){
         saveUser(newUser);//this function is on the storeManager
     }
+    clearInputs();
 }
-clearInputs();
     
 function clearInputs(){
     $("#txtFirstName").val("");
@@ -107,17 +107,17 @@ function clearInputs(){
 
 function init() {
     //hide the userForm
-    $("#userForm").hide();
     //hook events
     //show the userForm
     $("#newUser").on("click",function(){
-        $("#userForm").slideDown(3000);
+        $("#userForm").slideDown(1200);
     }); 
     //hide the userForm
-    $("#newUser").on("click",function(){
-        $("#userForm").slideUp(3000);
+    $("#hideForm").on("click",function(){
+        $("#userForm").slideUp(1200);
     });
-
+    
+    $("#userForm").hide();
     $("#txtPassword").keyup(validatePassword);
     $("#txtPassword").keyup(passwordConfirmation);
 }

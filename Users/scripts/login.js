@@ -2,15 +2,15 @@ function login(){
     console.log("Login successful");    
     //get the values from the email and password fields
     let txtPass=$("#txtPassword").val();
-    let userEmail=$("#userEmail").val();
+    let userEmail=$("#txtEmail").val();
 
     //use a flag
-let flag = true;
+    let flag = true;
     //get the users from the localStorage
     let users=readUsers();
 
     //travel the user list
-    for(let i=0; i<users.length; i++){
+    for( i=0; i<users.length; i++){
         //get the user
         let user = users[i];
         //compare the input values with the values from the LS
@@ -30,7 +30,7 @@ let flag = true;
 }
 
 function init(){
-    $("#LoginBtn").click(login)
+    $("#loginBtn").click(login);
 }
 window.onload=init
         

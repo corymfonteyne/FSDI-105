@@ -19,49 +19,51 @@
         </nav>
     </header>
 
-        <main>
-            <button type="button" class="btn btn-primary">Add New User</button>
-            <br></br>
-            <div>
-                <div class="form-container">
-                    <input type="text" id="txtFirstName" placeholder="First Name" />
+        <main class="container">
+            <div class="btn-container">
+                <button type="button" class="btn btn-primary" id="newUser">Add New User</button>
+                <button type="button" class="btn btn-primary" id="hideForm">Hide Form</button>
+            </div>               
+            <div id="userForm" class="user-container">
+                <div class="form-control">
+                    <input type="text" id="txtFirstName" placeholder="First Name">
                 </div>
-                <div class="form-container">
-                    <input type="text" id="txtLastName" placeholder="Last Name" />
+                <div class="form-control">
+                    <input type="text" id="txtLastName" placeholder="Last Name">
                 </div>
-                <div class="form-container">
-                    <input type="text" id="txtEmail" placeholder="Email" />
+                <div class="form-control">
+                    <input type="text" id="txtEmail" placeholder="Email">
                 </div>
-                <div class="form-container">
-                    <input type="number" id="numAge" placeholder="Age" />
+                <div class="form-control">
+                    <input type="number" id="numAge" placeholder="Age">
                 </div>
-                <div class="form-container">
-                    <input type="text" id="txtAddress" placeholder="Address" />
+                <div class="form-control">
+                    <input type="text" id="txtAddress" placeholder="Address">
                 </div>
-                <div class="form-container">
-                    <input type="text" id="txtPassword" placeholder="Password" />
+                <div class="form-control">
+                    <input type="text" id="txtPassword" placeholder="Password">
                 </div>
-                <div class="form-container">
-                    <input type="text" id="txtPasswordConfirmation"  placeholder="Password Confirmation" />
+                <div class="form-control">
+                    <input type="text" id="txtPasswordConfirmation"  placeholder="Password Confirmation">
                 </div>
-                <div class="form-container">
-                    <input id="txtPaymentMethod" placeholder="Payment Method">
+                <div class="form-control">
                     <select id="txtPaymentMethod">
+                        <option value=""disabled>Choose payment method</option>
                         <option value="Visa">Visa</option>
                         <option value="MasterCard">Master Card</option>
                         <option value="Discover">Discover</option>
                         <option value="AmExpress">AmExpress</option>
                     </select>
                 </div>
-                <br>
-                <button onclick="register();">Submit</button>
+                <input type="color" id="txtColor">
+                <button class="btn btn-primary" onclick="register();">Submit</button>
             </div>
                 
-            <footer>
-
-            </footer>
         </main>
-
+        
+        <footer>
+            <p>All Rights Reserved for Cory Fonteyne &copy; 2022</p>
+        </footer>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="scripts/storeManager.js"></script>
